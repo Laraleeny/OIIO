@@ -343,7 +343,7 @@ header nav ul li a:hover {
   position: relative;
   min-height: 100vh;
   padding: 0 5vw;
-  background: url("../../assets/img/jpg/bg-image-1.jpg") no-repeat center center/cover;
+  background: url("../assets/img/jpg/bg-image-1.jpg") no-repeat center center/cover;
   color: #ffffff;
 }
 .hero::before {
