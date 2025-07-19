@@ -539,7 +539,7 @@ header nav ul li a:hover {
   width: 100%;
   min-height: 100vh;
   padding: 0 5vw;
-  background: url("../assets/img/png/resized-img.png") no-repeat center top 40px/cover;
+  background: url("../assets/img/png/resized-image.png") no-repeat center top 40px/cover;
   color: #ffffff;
 }
 .hero::before {
