@@ -138,17 +138,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll('.tab');
   const panels = document.querySelectorAll('.tab-panel');
 
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
 
-    tab.classList.add('active');
-    document.querySelector(`.tab-panel[data-content="${tab.dataset.tab}"]`).classList.add('active');
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      panels.forEach(p => {
+        p.classList.remove('fade-in');
+        p.classList.add('fade-out');
+      });
+
+      // Allow fade-out to finish before switching panel
+      setTimeout(() => {
+        panels.forEach(p => p.classList.remove('active', 'fade-out'));
+
+        const targetPanel = document.querySelector(`.tab-panel[data-content="${target}"]`);
+        targetPanel.classList.add('active');
+        targetPanel.classList.add('fade-in');
+      }, 300); // sync with CSS transition
+    });
   });
-});
-
-
+  
 });
 
 
