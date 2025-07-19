@@ -679,7 +679,7 @@ header nav ul li a:hover {
   max-width: 50%;
   padding: 0 1.5rem;
   margin-bottom: 20px;
-  font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+  font-size: clamp(2rem, 2.5vw, 2.3rem);
   font-weight: 800;
   color: #5bc0de;
   text-align: left;
@@ -709,11 +709,32 @@ header nav ul li a:hover {
 .industries .tabs .tab:hover {
   background: #bfd7d6;
 }
+.industries .tab-panels {
+  position: relative;
+  min-height: 215px;
+}
 .industries .tab-panels .tab-panel {
-  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .industries .tab-panels .tab-panel.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.industries .tab-panels .tab-panel.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.industries .tab-panels .tab-panel.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
 }
 .industries .panel-grid {
   display: grid;
@@ -913,15 +934,25 @@ header nav ul li a:hover {
   border-top-right-radius: 50px;
 }
 
-.animation {
+.experience {
   background: #e7e8e9;
-  padding: 50px 20px;
+  padding: 0 20px;
   text-align: center;
 }
+.experience h2 {
+  max-width: 50%;
+  padding: 0 1.5rem;
+  margin-bottom: 20px;
+  font-size: clamp(2rem, 2.5vw, 2.3rem);
+  font-weight: 800;
+  color: #5bc0de;
+  text-align: left;
+}
+
 .animation-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 5px;
   justify-items: center;
   text-align: center;
 }
@@ -936,14 +967,12 @@ header nav ul li a:hover {
   }
 }
 .animation-card {
-  width: 200px;
+  width: 160px;
   height: 300px;
   text-align: center;
-  padding: 1.5rem 1rem;
   margin-top: 1rem;
   border-radius: 12px;
   position: relative;
-  background: #f9f9f9;
   transition: none;
   opacity: 0;
   transform: translateY(30px);
@@ -954,11 +983,25 @@ header nav ul li a:hover {
   animation: fadeUp 1.8s ease-out forwards;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
+}
 .card-number {
-  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 30px;
   font-weight: bold;
-  color: #5bc0de;
-  margin-bottom: 0.5rem;
+  color: #ffffff;
+  margin: 0 auto 0.5rem;
+  background: #06090E;
 }
 .card-title {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
